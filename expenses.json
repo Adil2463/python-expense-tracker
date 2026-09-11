@@ -1,0 +1,17 @@
+[
+    {
+        "amount": 100,
+        "category": "Food",
+        "description": "Lunch"
+    },
+    {
+        "amount": 200,
+        "category": "Transport",
+        "description": "Bus"
+    },
+    {
+        "amount": 1000,
+        "category": "Fun",
+        "description": "Weekend"
+    }
+]
