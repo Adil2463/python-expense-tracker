@@ -63,7 +63,6 @@ def category_summary():
     print(category_totals)
 
 def save_expense():
-    # import json 
     with open("expenses.json","w")as file:
         json.dump(all_expenses,file,indent=4)
 
@@ -96,6 +95,3 @@ while users_choice != exit_option_choosed:
     choices(users_choice)
 
 print("Good Bye")
-# import json
-
-# print(all_expenses)
