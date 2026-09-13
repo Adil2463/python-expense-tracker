@@ -13,5 +13,50 @@
         "amount": 1000,
         "category": "Fun",
         "description": "Weekend"
+    },
+    {
+        "amount": 23,
+        "category": "23",
+        "description": "34sfd"
+    },
+    {
+        "amount": 100,
+        "category": "hdy3",
+        "description": "hdh3"
+    },
+    {
+        "amount": 122,
+        "category": "hdfjdj",
+        "description": "ssdhf"
+    },
+    {
+        "amount": 100,
+        "category": "jdhd",
+        "description": "hdhd"
+    },
+    {
+        "amount": 5,
+        "category": "sdf",
+        "description": "sdf"
+    },
+    {
+        "amount": 90,
+        "category": "ksdhf",
+        "description": "kdsfh"
+    },
+    {
+        "amount": 90,
+        "category": "jsdfg",
+        "description": "kdfh"
+    },
+    {
+        "amount": 90,
+        "category": "ksdhf",
+        "description": "dfhdh"
+    },
+    {
+        "amount": 3746,
+        "category": "jdhf",
+        "description": "kdhf"
     }
 ]

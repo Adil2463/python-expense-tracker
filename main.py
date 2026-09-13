@@ -2,43 +2,68 @@ import json
 
 all_expenses = []
 
-with open("expenses.json","r") as file:
+with open("expenses.json", "r") as file:
     all_expenses = json.load(file)
+
 
 def menu():
     print("========================")
     print("     Expense Tracker")
     print("========================")
 
-    options = ["1. Add Expense", "2. View Expenses", "3. Show Total", "4. Category Summary","5. Exit"]
+    options = [
+        "1. Add Expense",
+        "2. View Expenses",
+        "3. Show Total",
+        "4. Category Summary",
+        "5. Exit",
+    ]
 
     for i in options:
         print(i)
 
-def add_expense():
-    
-    user_amount = int(input("Enter the amount: "))
-    user_category = input("Enter the catogery: ")
-    user_description = input("Enter the Description: ")
-    added_expenses = {
-        "amount": user_amount,
-        "category": user_category,
-        "description": user_description,
-    }
-    all_expenses.append(added_expenses)
-    save_expense()
 
-    print(added_expenses)
-    print("Expense Added")
+def add_expense():
+    while True:
+        try:
+            user_amount = int(input("Enter the amount: "))
+
+            if user_amount < 0:
+                print("Please enter the positive value ")
+                continue
+
+        except ValueError:
+            print("Please Enter the Number")
+        else:
+            while True:
+                user_category = input("Enter the category: ")
+                if user_category == "":
+                    print("Please enter the category")
+                    continue
+                else:
+                    break
+            user_description = input("Enter the Description: ")
+            added_expenses = {
+                "amount": user_amount,
+                "category": user_category,
+                "description": user_description,
+            }
+            all_expenses.append(added_expenses)
+            save_expense()
+
+            print(added_expenses)
+            print("Expense Added")
+            break
+
 
 def view_expense():
-    for index,item in enumerate(all_expenses,start=1):
+    for index, item in enumerate(all_expenses, start=1):
         amount = item["amount"]
         category = item["category"]
         description = item["description"]
         print(f"Expense {index}")
         print(f"Amount: {amount}")
-        print(f"Catogery: {category}")
+        print(f"Category: {category}")
         print(f"Description: {description}")
 
 
@@ -62,9 +87,11 @@ def category_summary():
             category_totals[category] = amount
     print(category_totals)
 
+
 def save_expense():
-    with open("expenses.json","w")as file:
-        json.dump(all_expenses,file,indent=4)
+    with open("expenses.json", "w") as file:
+        json.dump(all_expenses, file, indent=4)
+
 
 def choices(a):
     if a == 1:
@@ -82,16 +109,21 @@ def choices(a):
 
 
 menu()
-users_choice = int(input("Choose the option! "))
+while True:
+    try:
+        users_choice = int(input("Choose the option! "))
+    except ValueError:
+        print("Please enter a valid number")
+    else:
+        exit_option_choosed = 5
 
-exit_option_choosed = 5
+        choices(users_choice)
 
-choices(users_choice)
+        while users_choice != exit_option_choosed:
+            menu()
 
-while users_choice != exit_option_choosed:
-    menu()
+            users_choice = int(input("Choose the option! "))
+            choices(users_choice)
 
-    users_choice = int(input("Choose the option! "))
-    choices(users_choice)
-
-print("Good Bye")
+        print("Good Bye")
+        break
